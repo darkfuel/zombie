@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Zombies</h1>
+
+    <div class="row">
+    
+    <% @zombies.each do |zombie| %>
+      <div class="card" style="width: 18rem;">    
+              <%= image_tag zombie.photo, alt:"Zombie Picture", class:'img-responsive img-thumbnail' %>
+              <p>Kill  <%= zombie.killed %></p>
+              <p>Name  <%= zombie.name %> </p>
+              <p>Healt <%= zombie.health %></p>
+              <%= link_to 'Show', zombie %>
+              <%= link_to 'Edit', edit_zombie_path(zombie) %>
+              <%= link_to 'Destroy', zombie, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div> 
+    <% end %>
+
+    </div>
+    
+        
+    
+
+<%= link_to 'New Zombie', new_zombie_path %>
