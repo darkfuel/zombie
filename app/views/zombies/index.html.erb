@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 
 <h1> - Zombies Members - </h1>
   <H3><%= link_to 'New Zombie', new_zombie_path %></H3>
@@ -6,15 +6,18 @@
     <div class="row">
     
       <% @zombies.each do |zombie| %>
-      <div class="card" style="width: 18rem;">    
+      <div class="card m-5" style="width: 18rem;">    
               <%= image_tag zombie.photo, alt:"Zombie Picture", class:'img-responsive img-thumbnail' %>
               <H5>Kill  <%= zombie.killed %></H5>
               <H5>Name  <%= zombie.name %></H5>
               <H5>Healt <%= zombie.health %></H5>
+              <p>Owner:   <%= zombie.user.try(:email)%></p>
               <div class="container"> 
-                  <a class="btn btn-primary" <%= link_to 'Show', zombie %>>
-                  <a class="btn btn-secondary" <%= link_to 'Edit', edit_zombie_path(zombie) %>>
-                  <a class="btn btn-danger" <%= link_to 'Destroy', zombie, method: :delete, data: {confirm: 'Are you sure?' } %>>
+                  <%= link_to 'Show', zombie, class: "btn btn-primary" %>
+                  <%= link_to 'Edit', edit_zombie_path(zombie), class: "btn btn-secondary" %>
+                  <%= link_to 'Destroy', zombie, method: :delete, data: {confirm: 'Are you 
+                    sure?' }, class: "btn btn-danger" %>
+                  
               </div>
       </div> 
     <% end %>

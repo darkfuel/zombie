@@ -55,6 +55,7 @@ group :development do
   gem 'sqlite3', '~> 1.3.6'
 end
 
+gem 'devise'
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
